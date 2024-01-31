@@ -1,0 +1,1327 @@
+Testfall · FUNCTIONAL Roll contains unknown dice element fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll 12 MA MD MD RA RD\n
+<~~    Error, could not find legal dice throw for <12> at position <1>. Every argument must match pattern G?([R][DA]|ST|MD)|MA\n
+-->    roll MA AB MD MD RA RD\n
+<~~    Error, could not find legal dice throw for <AB> at position <2>. Every argument must match pattern G?([R][DA]|ST|MD)|MA\n
+-->    roll MA MA ok MD RA RD\n
+<~~    Error, could not find legal dice throw for <ok> at position <3>. Every argument must match pattern G?([R][DA]|ST|MD)|MA\n
+-->    roll MA MA MD _! RA RD\n
+<~~    Error, could not find legal dice throw for <_!> at position <4>. Every argument must match pattern G?([R][DA]|ST|MD)|MA\n
+-->    roll MA MA MD MD GMA RD\n
+<~~    Error, could not find legal dice throw for <GMA> at position <5>. Every argument must match pattern G?([R][DA]|ST|MD)|MA\n
+-->    roll MA MA MD MD RA RDD\n
+<~~    Error, could not find legal dice throw for <RDD> at position <6>. Every argument must match pattern G?([R][DA]|ST|MD)|MA\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Alice, IR;TT;TS, Bob, IR;TT;TS, 5, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Godfavor with illegal level fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Alice;5;0\n
+<--    Bob;5;0\n
+-->    roll MA MA MD MD RA RD\n
+<--    OK, Bob's turn\n
+-->    roll RA ST MA MA GRA GRD\n
+<--    OK, Alice's turn\n
+-->    godfavor TS -2\n
+<~~    Error, level has to be in the format <[1-3]> but was <-2>\n
+-->    godfavor TT -1\n
+<~~    Error, level has to be in the format <[1-3]> but was <-1>\n
+-->    godfavor IR 0\n
+<~~    Error, level has to be in the format <[1-3]> but was <0>\n
+-->    godfavor TS 4\n
+<~~    Error, level has to be in the format <[1-3]> but was <4>\n
+-->    godfavor TT 5\n
+<~~    Error, level has to be in the format <[1-3]> but was <5>\n
+-->    godfavor IR 6\n
+<~~    Error, level has to be in the format <[1-3]> but was <6>\n
+-->    godfavor TS 1A\n
+<~~    Error, level has to be in the format <[1-3]> but was <1A>\n
+-->    godfavor TT A\n
+<~~    Error, level has to be in the format <[1-3]> but was <A>\n
+-->    godfavor IR ABC\n
+<~~    Error, level has to be in the format <[1-3]> but was <ABC>\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Alice, IR;TT;TS, Bob, IR;TT;TS, 5, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Selected godfavor not in play fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Bob's turn\n
+-->    roll MD MD MD RA RA RA\n
+<--    OK, Alice's turn\n
+-->    godfavor MW 1\n
+<~~    Error, player does not have GodFavor <MW> in his inventory.\n
+-->    godfavor HW 1\n
+<~~    Error, player does not have GodFavor <HW> in his inventory.\n
+-->    godfavor VB 1\n
+<~~    Error, player does not have GodFavor <VB> in his inventory.\n
+-->    godfavor TT 1\n
+<--    OK, Bob's turn\n
+-->    godfavor IR 1\n
+<~~    Error, player does not have GodFavor <IR> in his inventory.\n
+-->    godfavor TT 1\n
+<~~    Error, player does not have GodFavor <TT> in his inventory.\n
+-->    godfavor TS 1\n
+<~~    Error, player does not have GodFavor <TS> in his inventory.\n
+-->    godfavor VB 1\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Alice;5;0\n
+<--    Bob;5;0\n
+<--    OK, Alice's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Alice, IR;TT;TS, Bob, MW;HW;VB, 5, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Evaluate called at wrong phase fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    evaluate\n
+<~~    Error, evaluate can only be used when in the evaluation phase\n
+-->    roll MA MA MD MD RA RD\n
+<--    OK, Bob's turn\n
+-->    evaluate\n
+<~~    Error, evaluate can only be used when in the evaluation phase\n
+-->    roll RA ST MA MA GRA GRD\n
+<--    OK, Alice's turn\n
+-->    evaluate\n
+<~~    Error, evaluate can only be used when in the evaluation phase\n
+-->    turn\n
+<--    OK, Bob's turn\n
+-->    evaluate\n
+<~~    Error, evaluate can only be used when in the evaluation phase\n
+-->    turn\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Alice;4;0\n
+<--    Bob;3;2\n
+<--    OK, Alice's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Alice, IR;TT;TS, Bob, IR;TT;TS, 5, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Roll called at wrong phase fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MA MA MD MD RA RD\n
+<--    OK, Bob's turn\n
+-->    roll RA ST MA MA GRA GRD\n
+<--    OK, Alice's turn\n
+-->    roll RA;ST;MA;MA;GRA;GRD\n
+<~~    Error, roll may only have 6 arguments, but were 1\n
+-->    turn\n
+<--    OK, Bob's turn\n
+-->    roll MA MA MD MD RA RD\n
+<~~    Error, can only roll in the roll phase.\n
+-->    turn\n
+<--    OK, all players are now ready to evaluate!\n
+-->    roll RA;ST;MA;MA;GRA;GRD\n
+<~~    Error, roll may only have 6 arguments, but were 1\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Alice, IR;TT;TS, Bob, IR;TT;TS, 5, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Turn called at wrong phase fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    turn\n
+<~~    Error, you can only turn in the god favor phase.\n
+-->    roll MA MA MD MD RA RD\n
+<--    OK, Bob's turn\n
+-->    turn\n
+<~~    Error, you can only turn in the god favor phase.\n
+-->    roll RA ST MA MA GRA GRD\n
+<--    OK, Alice's turn\n
+-->    turn\n
+<--    OK, Bob's turn\n
+-->    turn\n
+<--    OK, all players are now ready to evaluate!\n
+-->    turn\n
+<~~    Error, you can only turn in the god favor phase.\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Alice, IR;TT;TS, Bob, IR;TT;TS, 5, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Godfavor with unknown name fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Alice;5;0\n
+<--    Bob;5;0\n
+-->    roll MA MA MD MD RA RD\n
+<--    OK, Bob's turn\n
+-->    roll RA ST MA MA GRA GRD\n
+<--    OK, Alice's turn\n
+-->    godfavor MG 1\n
+<~~    Error, there exists no GodFavor with abbreviation <MG>\n
+-->    godfavor MH 1\n
+<~~    Error, there exists no GodFavor with abbreviation <MH>\n
+-->    godfavor LA 1\n
+<~~    Error, there exists no GodFavor with abbreviation <LA>\n
+-->    godfavor GMD 1\n
+<~~    Error, there exists no GodFavor with abbreviation <GMD>\n
+-->    godfavor Abcde12345 1\n
+<~~    Error, there exists no GodFavor with abbreviation <Abcde12345>\n
+-->    godfavor 1 1\n
+<~~    Error, there exists no GodFavor with abbreviation <1>\n
+-->    godfavor _!? 1\n
+<~~    Error, there exists no GodFavor with abbreviation <_!?>\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Alice, IR;TT;TS, Bob, IR;TT;TS, 5, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Quit with wrong argument count fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    quit quit\n
+<~~    Error, quit does not allow arguments.\n
+-->    quit Abcde\n
+<~~    Error, quit does not allow arguments.\n
+-->    quit 1234 Abcde\n
+<~~    Error, quit does not allow arguments.\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Alice, IR;TT;TS, Bob, IR;TT;TS, 5, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Print with wrong argument count fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print print\n
+<~~    Error, print does not allow arguments.\n
+-->    print Alice\n
+<~~    Error, print does not allow arguments.\n
+-->    print 1234 Abcde\n
+<~~    Error, print does not allow arguments.\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Alice, IR;TT;TS, Bob, IR;TT;TS, 5, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Godfavor with wrong argument count fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MA MA MD MD RA RD\n
+<--    OK, Bob's turn\n
+-->    roll RA ST MA MA GRA GRD\n
+<--    OK, Alice's turn\n
+-->    godfavor\n
+<~~    Error, command must have <2> arguments but had <0>\n
+-->    godfavor TS\n
+<~~    Error, command must have <2> arguments but had <1>\n
+-->    godfavor TS 1 2\n
+<~~    Error, command must have <2> arguments but had <3>\n
+-->    godfavor TS 1 TS 1\n
+<~~    Error, command must have <2> arguments but had <4>\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Alice, IR;TT;TS, Bob, IR;TT;TS, 5, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Turn with wrong argument count fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MA MA MD MD RA RD\n
+<--    OK, Bob's turn\n
+-->    roll MD MD MA MA RD RA\n
+<--    OK, Alice's turn\n
+-->    turn turn\n
+<~~    Error, turn does not allow arguments!\n
+-->    turn Alice\n
+<~~    Error, turn does not allow arguments!\n
+-->    turn 1234 Abcde\n
+<~~    Error, turn does not allow arguments!\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Alice, TS;TT;MW, Bob, HW;MW;IR, 5, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Evaluate with wrong argument count fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MA MA MD MD RA RD\n
+<--    OK, Bob's turn\n
+-->    roll RA ST MA MA GRA GRD\n
+<--    OK, Alice's turn\n
+-->    turn\n
+<--    OK, Bob's turn\n
+-->    turn\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate 1234\n
+<~~    Error, evaluate does not allow args!\n
+-->    evaluate Alice\n
+<~~    Error, evaluate does not allow args!\n
+-->    evaluate Alice Bob\n
+<~~    Error, evaluate does not allow args!\n
+-->    evaluate Alice Bob\n
+<~~    Error, evaluate does not allow args!\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Alice, IR;TT;TS, Bob, IR;TT;TS, 5, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Roll with wrong argument count fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll\n
+<~~    Error, roll may only have 6 arguments, but were 0\n
+-->    roll MA\n
+<~~    Error, roll may only have 6 arguments, but were 1\n
+-->    roll MA MA\n
+<~~    Error, roll may only have 6 arguments, but were 2\n
+-->    roll MA MA MD\n
+<~~    Error, roll may only have 6 arguments, but were 3\n
+-->    roll MA MA MD MD\n
+<~~    Error, roll may only have 6 arguments, but were 4\n
+-->    roll MA MA MD MD RA\n
+<~~    Error, roll may only have 6 arguments, but were 5\n
+-->    roll MA MA MD MD RA RD MA\n
+<~~    Error, roll may only have 6 arguments, but were 7\n
+-->    roll MA MA MD MD RA RD MA MA MD MD RA RD\n
+<~~    Error, roll may only have 6 arguments, but were 12\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Alice, TT;MW;HW, Bob, IR;TS;TT, 5, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Win game with dice fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;5;2\n
+<--    Desmond;5;2\n
+-->    roll RD RD GRD GRD RD ST\n
+<--    OK, Desmond's turn\n
+-->    roll MA MA MA MA RD GRD\n
+<--    OK, Ezio's turn\n
+-->    turn\n
+<--    OK, Desmond's turn\n
+-->    turn\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;1;5\n
+<--    Desmond;5;2\n
+<--    OK, Ezio's turn\n
+-->    roll RD RD GRD GRD RD ST\n
+<--    OK, Desmond's turn\n
+-->    roll MA MA MA MA RD RD\n
+<--    OK, Ezio's turn\n
+-->    turn\n
+<--    OK, Desmond's turn\n
+-->    turn\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;0;8\n
+<--    Desmond;5;1\n
+<--    Desmond wins!\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, TS;TT;MW, Desmond, TS;TT;HW, 5, 2]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Skip godfavor of first player via turn fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    turn\n
+<--    OK, Desmond's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, IR;TT;TS, Desmond, TS;HW;MW, 7, 4]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Godfavor not executed due to stealing via dice fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;7;4\n
+<--    Desmond;7;4\n
+-->    roll MA MA MA RD RD ST\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    turn\n
+<--    OK, Desmond's turn\n
+-->    godfavor IR 1\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;7;5\n
+<--    Desmond;7;3\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, IR;TT;TS, Desmond, VB;TT;IR, 7, 4]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Godfavor selected with missing tokens and skipped fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;7;4\n
+<--    Desmond;7;4\n
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TS 3\n
+<--    OK, Desmond's turn\n
+-->    godfavor TT 3\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;7;4\n
+<--    Desmond;7;4\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, TS;TT;IR, Desmond, HW;TT;MW, 7, 4]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Evaluate theft before strike fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;5;10\n
+<--    Desmond;5;10\n
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TS 2\n
+<--    OK, Desmond's turn\n
+-->    godfavor TT 2\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;5;2\n
+<--    Desmond;5;4\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, TS;TT;VB, Desmond, TT;IR;HW, 5, 10]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Print game at initial state with health points at upper integer bound fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;2147483647;42\n
+<--    Desmond;2147483647;42\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, TS;TT;IR, Desmond, TS;TT;IR, 2147483647, 42]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Evaluate strike before regeneration fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;5;8\n
+<--    Desmond;5;8\n
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TS 2\n
+<--    OK, Desmond's turn\n
+-->    godfavor IR 1\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;5;0\n
+<--    Desmond;0;4\n
+<--    Ezio wins!\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, IR;TS;TT, Desmond, IR;TS;HW, 5, 8]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Win game with godfavor fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;5;10\n
+<--    Desmond;5;10\n
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TS 2\n
+<--    OK, Desmond's turn\n
+-->    turn\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;5;2\n
+<--    Desmond;0;10\n
+<--    Ezio wins!\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, TS;IR;MW, Desmond, HW;MW;TT, 5, 10]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Evaluate dice before regeneration fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;5;4\n
+<--    Desmond;5;4\n
+-->    roll RD RD GRD GRD RD RA\n
+<--    OK, Desmond's turn\n
+-->    roll MA MA MA MA MA RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor IR 1\n
+<--    OK, Desmond's turn\n
+-->    turn\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;0;6\n
+<--    Desmond;5;4\n
+<--    Desmond wins!\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, IR;TS;TT, Desmond, MW;HW;IR, 5, 4]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Checks if double Thrymr's Diebstahl executes correctly. fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll RA RA RA MD MD MD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TT 1\n
+<--    OK, Desmond's turn\n
+-->    godfavor TT 3\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;7;7\n
+<--    Desmond;7;1\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, HW;TT;TS, Desmond, HW;IR;TT, 7, 10]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Steal available tokens fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;7;2\n
+<--    Desmond;7;2\n
+-->    roll MA MA MA RD ST ST\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RD ST\n
+<--    OK, Ezio's turn\n
+-->    turn\n
+<--    OK, Desmond's turn\n
+-->    turn\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;7;3\n
+<--    Desmond;7;1\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, IR;TS;TT, Desmond, HW;MW;VB, 7, 2]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Godfavor executed due to stealing via dice fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;7;3\n
+<--    Desmond;7;3\n
+-->    roll MA MA MA RD RD ST\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TS 1\n
+<--    OK, Desmond's turn\n
+-->    turn\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;7;0\n
+<--    Desmond;5;2\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, TS;TT;HW, Desmond, VB;IR;MW, 7, 3]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Evaluate theft before regeneration fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;5;10\n
+<--    Desmond;5;10\n
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TT 1\n
+<--    OK, Desmond's turn\n
+-->    godfavor IR 1\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;5;7\n
+<--    Desmond;5;6\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, TT;IR;MW, Desmond, TT;IR;HW, 5, 10]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Evaluate dice before strike fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;5;8\n
+<--    Desmond;5;8\n
+-->    roll RD RD GRD GRD RD ST\n
+<--    OK, Desmond's turn\n
+-->    roll MA MA MA MA MA GRD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TS 2\n
+<--    OK, Desmond's turn\n
+-->    turn\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;0;11\n
+<--    Desmond;5;8\n
+<--    Desmond wins!\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, TS;IR;MW, Desmond, IR;MW;HW, 5, 8]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Draw game with dice fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;5;2\n
+<--    Desmond;5;2\n
+-->    roll MA MA MA MA MA MA\n
+<--    OK, Desmond's turn\n
+-->    roll MA MA MA MA MA MA\n
+<--    OK, Ezio's turn\n
+-->    turn\n
+<--    OK, Desmond's turn\n
+-->    turn\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;0;2\n
+<--    Desmond;0;2\n
+<--    draw\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, HW;MW;VB, Desmond, TS;IR;TT, 5, 2]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Draw game with godfavor fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;5;10\n
+<--    Desmond;5;10\n
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TS 2\n
+<--    OK, Desmond's turn\n
+-->    godfavor TS 2\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;0;2\n
+<--    Desmond;0;2\n
+<--    draw\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, TS;IR;TT, Desmond, TS;IR;TT, 5, 10]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Steal partially unavailable tokens fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;7;1\n
+<--    Desmond;7;1\n
+-->    roll MA MA MA RD ST ST\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    turn\n
+<--    OK, Desmond's turn\n
+-->    turn\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;6;2\n
+<--    Desmond;7;0\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, HW;MW;VB, Desmond, TS;HW;MW, 7, 1]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Cant activate Thor's Blitz due to missing godpower fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll RA RA RA MD MD MD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TS 1\n
+<--    OK, Desmond's turn\n
+-->    godfavor TS 1\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;7;0\n
+<--    Desmond;7;0\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, HW;IR;TS, Desmond, HW;IR;TS, 7, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Cant activate Thrymr's Diebstahl due to missing godpower fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll RA RA GRA GMD GMD GMD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TT 1\n
+<--    OK, Desmond's turn\n
+-->    godfavor IR 1\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;7;0\n
+<--    Desmond;9;0\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, HW;TT;TS, Desmond, HW;IR;TT, 7, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Cant activate Var's Bund due to missing godpower fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll RA RA GRA GMD GMD GMD\n
+<--    OK, Ezio's turn\n
+-->    godfavor VB 1\n
+<--    OK, Desmond's turn\n
+-->    godfavor IR 1\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;7;0\n
+<--    Desmond;9;0\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, VB;TT;TS, Desmond, HW;IR;TT, 7, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Cant activate Idun's Regeneration due to missing godpower fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll RA RA RA MD MD MD\n
+<--    OK, Ezio's turn\n
+-->    godfavor IR 1\n
+<--    OK, Desmond's turn\n
+-->    godfavor IR 1\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;7;0\n
+<--    Desmond;7;0\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, HW;IR;TS, Desmond, HW;IR;TT, 7, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Cant activate Mimir's Weisheit due to missing godpower fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MA MA MA MA RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll RA RA RA RA MD MD\n
+<--    OK, Ezio's turn\n
+-->    godfavor MW 1\n
+<--    OK, Desmond's turn\n
+-->    godfavor MW 1\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;5;0\n
+<--    Desmond;5;0\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, MW;TT;TS, Desmond, MW;IR;TT, 7, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Cant activate Heimdall's Wacht due to missing godpower fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll RA RA RA MD MD MD\n
+<--    OK, Ezio's turn\n
+-->    godfavor HW 1\n
+<--    OK, Desmond's turn\n
+-->    godfavor HW 1\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;7;0\n
+<--    Desmond;7;0\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, HW;TT;TS, Desmond, HW;IR;TT, 7, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Godfavor Mimir's Weisheit fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MA MA MA MA RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MD RD MA MA RA RA\n
+<--    OK, Ezio's turn\n
+-->    godfavor MW 1\n
+<--    OK, Desmond's turn\n
+-->    godfavor MW 3\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;3;49\n
+<--    Desmond;2;52\n
+<--    OK, Ezio's turn\n
+-->    roll MD MD MD MD MD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MA MA MA MA MA MA\n
+<--    OK, Ezio's turn\n
+-->    godfavor MW 2\n
+<--    OK, Desmond's turn\n
+-->    godfavor MW 2\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;2;46\n
+<--    Desmond;2;47\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, HW;MW;TS, Desmond, HW;MW;TT, 5, 50]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Godfavor Var's Bund fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RA\n
+<--    OK, Ezio's turn\n
+-->    godfavor VB 1\n
+<--    OK, Desmond's turn\n
+-->    godfavor VB 3\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;23;40\n
+<--    Desmond;35;32\n
+<--    OK, Ezio's turn\n
+-->    roll MA MA MA MA MA MA\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD MD MD MD\n
+<--    OK, Ezio's turn\n
+-->    godfavor VB 3\n
+<--    OK, Desmond's turn\n
+-->    godfavor VB 2\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;65;22\n
+<--    Desmond;71;18\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, HW;TT;VB, Desmond, HW;IR;VB, 5, 50]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Godfavor Thor's Blitz fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;200;100\n
+<--    Desmond;200;100\n
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TS 1\n
+<--    OK, Desmond's turn\n
+-->    godfavor TS 2\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;195;96\n
+<--    Desmond;198;92\n
+<--    OK, Ezio's turn\n
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TS 3\n
+<--    OK, Desmond's turn\n
+-->    godfavor TS 3\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;187;84\n
+<--    Desmond;190;80\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, TS;VB;TT, Desmond, TS;VB;IR, 200, 100]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Godfavor Idun's Regeneration fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;200;100\n
+<--    Desmond;200;100\n
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor IR 1\n
+<--    OK, Desmond's turn\n
+-->    godfavor IR 2\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;202;96\n
+<--    Desmond;204;93\n
+<--    OK, Ezio's turn\n
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor IR 3\n
+<--    OK, Desmond's turn\n
+-->    godfavor IR 3\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;208;86\n
+<--    Desmond;210;83\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, IR;TT;MW, Desmond, IR;TT;MW, 200, 100]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Godfavor Thrymr's Diebstahl fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;200;100\n
+<--    Desmond;200;100\n
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TS 3\n
+<--    OK, Desmond's turn\n
+-->    godfavor TT 1\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;200;88\n
+<--    Desmond;195;97\n
+<--    OK, Ezio's turn\n
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TT 2\n
+<--    OK, Desmond's turn\n
+-->    godfavor TS 3\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;198;82\n
+<--    Desmond;195;85\n
+<--    OK, Ezio's turn\n
+-->    roll MA MA MA RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TS 3\n
+<--    OK, Desmond's turn\n
+-->    godfavor TT 3\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;198;70\n
+<--    Desmond;195;76\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, TS;TT;IR, Desmond, TS;TT;IR, 200, 100]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Godfavor Heimdall's Wacht fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MA MA ST MA RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD ST MA RA RA\n
+<--    OK, Ezio's turn\n
+-->    godfavor HW 1\n
+<--    OK, Desmond's turn\n
+-->    godfavor HW 3\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;6;46\n
+<--    Desmond;10;40\n
+<--    OK, Ezio's turn\n
+-->    roll MA MA MA MA MA MA\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD MD RD RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TS 3\n
+<--    OK, Desmond's turn\n
+-->    godfavor HW 2\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;6;34\n
+<--    Desmond;0;33\n
+<--    Ezio wins!\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, HW;TT;TS, Desmond, HW;IR;TT, 5, 50]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Cant heal negative hitpoints with Idun's Regeneration fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll RD RD RD RD RD RD\n
+<--    OK, Desmond's turn\n
+-->    roll MA MA MA MA MA MA\n
+<--    OK, Ezio's turn\n
+-->    godfavor IR 1\n
+<--    OK, Desmond's turn\n
+-->    godfavor TS 1\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;0;46\n
+<--    Desmond;7;46\n
+<--    Desmond wins!\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, IR;TT;TS, Desmond, TS;IR;TT, 7, 50]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Cant heal negative hitpoints with Heimdall's Wacht fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MA MA MA MA MA MA\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD MD MD MD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TS 2\n
+<--    OK, Desmond's turn\n
+-->    godfavor HW 3\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;5;42\n
+<--    Desmond;0;40\n
+<--    Ezio wins!\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, HW;TT;TS, Desmond, HW;IR;TT, 5, 50]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Cant heal negative hitpoints with Var's Bund fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    roll MD MD MD MD MD MD\n
+<--    OK, Desmond's turn\n
+-->    roll RD RD RD RD RD RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TS 3\n
+<--    OK, Desmond's turn\n
+-->    godfavor VB 1\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;8;38\n
+<--    Desmond;0;40\n
+<--    Ezio wins!\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, HW;TT;TS, Desmond, VB;IR;TT, 8, 50]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · FUNCTIONAL Godfavor executed due to extra token via dice fehlgeschlagen
+
+Timeout: Your program did not terminate within 100 ms.
+
+Your program's input and output:
+-->    print\n
+<--    Ezio;7;3\n
+<--    Desmond;7;3\n
+-->    roll MA MA MA RD RD GRD\n
+<--    OK, Desmond's turn\n
+-->    roll MD MD MD RA RA RD\n
+<--    OK, Ezio's turn\n
+-->    godfavor TS 1\n
+<--    OK, Desmond's turn\n
+-->    turn\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Ezio;7;0\n
+<--    Desmond;5;3\n
+<--    OK, Ezio's turn\n
+-->    quit\n
+<~~    Error, quit does not allow arguments.\n
+
+Command-line arguments: 
+[Ezio, TS;HW;MW, Desmond, IR;TT;TS, 7, 3]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
+Testfall · Optional Modeling-Check: Magic Literal Test fehlgeschlagen
+

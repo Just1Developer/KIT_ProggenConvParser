@@ -1,0 +1,40 @@
+Testfall · FUNCTIONAL Print after game ended fehlgeschlagen
+
+Your program unexpectedly requested input.
+Expected: an output on the default stream (System.out) that is "Bob;4;1"
+
+Your program's input and output:
+-->    print\n
+<--    Bob;5;0\n
+<--    Alice;5;0\n
+-->    roll MA MA MD MD RA RD\n
+<--    OK, Alice's turn\n
+-->    roll RA ST MA MA GRA GRD\n
+<--    OK, Bob's turn\n
+-->    godfavor TS 1\n
+<--    OK, Alice's turn\n
+-->    godfavor TT 1\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Bob;4;0\n
+<--    Alice;3;2\n
+<--    OK, Bob's turn\n
+-->    roll MA GMD GMD GRA GST MD\n
+<--    OK, Alice's turn\n
+-->    roll MD MD MD MA MA MA\n
+<--    OK, Bob's turn\n
+-->    godfavor TS 1\n
+<--    OK, Alice's turn\n
+-->    turn\n
+<--    OK, all players are now ready to evaluate!\n
+-->    evaluate\n
+<--    Bob;4;1\n
+<--    Alice;0;1\n
+<--    Bob wins!\n
+-->    print\n
+
+Command-line arguments: 
+[Bob, TS;IR;TT, Alice, IR;TS;TT, 5, 0]
+
+
+More information about failure messages in our Wiki here: https://ilias.studium.kit.edu/goto.php?target=wiki_2213632_Artemis_Fehlermeldungen
